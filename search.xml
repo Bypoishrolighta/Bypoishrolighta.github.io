@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>HelloWorld！</title>
+    <url>/post/b6c4e4b6.html</url>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h2><p>&amp;emsp;我已经不是第一次搭建Blog，因为相关技术问题没有再更新<del>主要是懒</del>。<span id="more"></span>今年因为某些原因，不能经常上网，而且担心错过信息。就用RSS订阅一些信息源，本来用的Inoreader配合RSSHUB，免费功能也勉强够用，但订阅一些网站时图片加载不出来，在网上搜了一圈之后找到了这个<strong>万恶之源</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/image-20210821144847473.png" alt="image-20210821144847473"></p>
+<p>​	行吧我就自建了TTRSS和RSSHub（之后会有一篇文章讲这个），用的是腾讯云，好巧不巧的是它给了一个8元一年的域名套餐，我的啪的一下很快啊，就买了，想着可以绑定上面的两个服务方便访问，没想到国内的服务器又要实名又要备案，非常麻烦，后来发现绑定Github Pages 不需要备案，我一上头就重构了整个博客。</p>
+<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>​	为什么用这个呢，因为它快捷方便且稳定<del>主要是之前就是用这个的</del>。下面是部分搭建的过程 <strong>并非教程</strong> 只是方便大家理解建站过程和站点结构。 <del>主要是备忘踩过的一些坑</del></p>
+<p>​	安装环境Npm Node.js Git</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo <span class="string">&#x27;局部安装，我安装在Onedrive目录下方便备份和同步&#x27;</span></span><br><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br><span class="line">hexo new [layout] &lt;title&gt; <span class="string">&#x27;新建文章&#x27;</span></span><br><span class="line">hexo g <span class="string">&#x27;构建&#x27;</span></span><br><span class="line">hexo d <span class="string">&#x27;上传&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Theme-next"><a href="#Theme-next" class="headerlink" title="Theme-next"></a>Theme-next</h3><p>​		选这个当然是因为它的Start最多了，而且又是国人创建的项目对中文和国内的网络环境比较友好，网络上相关的教程也有很多。</p>
+<p>用的是scheme: Gemini，同时开启了腾讯公益寻人404，文章访客统计，建站时间记录，RSS订阅。</p>
+<h3 id="GIthub-Pages"><a href="#GIthub-Pages" class="headerlink" title="GIthub Pages"></a>GIthub Pages</h3><p>​		选择GitHub是因为无需备案，托管静态网页绰绰有余，还不用担心跑路，唯一的缺点可能就是在大陆地区访问较为缓慢，接下来使用Cloud flare作为全站CDN加速，jsDelivr 对图床和JS脚本加速。</p>
+<p>​	<img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/%E6%97%A0%E6%A0%87%E9%A2%98.png" alt="无标题"></p>
+<p>​		千万<strong>不要勾选</strong>HTTPS，因为CDN已经有这个服务了，这里勾选的话会产生多次重定向导致无法访问。</p>
+<p>​		这里的域名信息要做永久化处理，否则上传文件到GIthub会导致CNAME被删除，在Blog\source下建立CNAME文件内容是你的域名。</p>
+<h3 id="Cloudflare"><a href="#Cloudflare" class="headerlink" title="Cloudflare"></a>Cloudflare</h3><p>​		选这个是因为国内访问太慢了，其他的国内CDN都要备案，就这个不用而且速度还行我这能从250ms降到170ms，后期看看怎么优化访问速度变得更好。<del>懒得折腾的话可能直接投诚了</del> 数据可视化也特别炫酷，不过应该也没有多少人访问，就自嗨吧。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/image-20210821215727773.png" alt="image-20210821215727773"></p>
+<p>​		去更改腾讯云域名的DNS提供商，之后在Cloudflare的DNS里增加几行记录就行了，一些老的教程还要添加CNAME类型，现在CF已经可以直接解析了，不用这么麻烦了。<del>之前搞得我重定向了好多次</del></p>
+<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><p>​		本来是想用七牛云的，但是域名必须要备案，只好选择其他的方法。第一个想到的是一些免费图床，但害怕数据的稳定性就选择了现在很火的Github仓库来做图床。</p>
+<p>​		我是用Typora来写文章的所以优先使用能直接联动的方式增加图片，Picgo就是一个很好的项目，直接可以在Typora设置里联动。设置如下即可，之后就可以去下载Picgo了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/image-20210821220645368.png" alt="image-20210821220645368"></p>
+<p>​		先建一个Github仓库，获取token（仅明文出现一次），安装Picgo，按照下图配置。使用CDN加速图片的访问：<a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%90%8D">https://cdn.jsdelivr.net/gh/用户名/仓库名</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/PH1.jpg" alt="PH1"></p>
+<p>​		这个方案也不是完美的，有时候上传会失效，而且PNG格式的图片上传失败（可能是我自己的锅），不过都白嫖赚到了，也没什么好说的啦。</p>
+<p>​		<strong>以上这些就是我搭建这个博客过程中所遇到的一些坑，可能还有更好的解决方法，欢迎大家发邮件与我交流。</strong></p>
+<h2 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h2><p>​		以后这个博客会有以下内容</p>
+<ul>
+<li><strong>技术</strong> 主要是前端和编程语言相关的内容</li>
+<li><strong>随笔</strong> 中二病犯的时候写的一些东西</li>
+<li><strong>科技产品开箱</strong> 可能会很久才更新 <del>因为贫穷</del></li>
+<li><strong>前沿科技</strong> 包主要是计算机和生物技术 其他的也有</li>
+<li><strong>效率</strong> 讲讲一些效率工具和提高效率的方法</li>
+<li><strong>书评影评漫评</strong> 讲讲个人的观点</li>
+<li><strong>一些爱好</strong> 例如哲学诗词艺术啥的</li>
+</ul>
+<h2 id="宗旨"><a href="#宗旨" class="headerlink" title="宗旨"></a>宗旨</h2><ol>
+<li>本博客遵循<strong>我为人人，人人为我</strong>的互联网开源思想，采取<strong>CC BY-NC 协议</strong>，允许署名<strong>非商业转载</strong>，使用内容<strong>无需联系本人</strong>。</li>
+<li>与<a href="https://wiki.mbalib.com/wiki/%E4%BF%A1%E6%81%AF%E8%BF%87%E8%BD%BD"><strong>信息过载</strong></a> 和 <a href="https://wiki.mbalib.com/wiki/%E4%BF%A1%E6%81%AF%E6%B1%A1%E6%9F%93"><strong>信息污染</strong></a> 相抗争，所以之后的文章会有于此相关的内容，谈一谈我是怎么做的。</li>
+</ol>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>​		建立这个博客除了第一段提到的机缘巧合，还有就是现在的信息的过载了，很多看过的东西都会忘记，根本无法形成深度记忆更别说引起深层次的思考了，而写作就是一个能强行让人思考的手段，这样可以强迫我整理消化看过的信息同时也能帮到遇上相同问题的人。	</p>
+<p>​		<strong>本站全面支持RSS订阅，本博客仅支持邮箱交流。</strong></p>
+<p>​		<strong>感谢您能看到这里！</strong></p>
+<p>​																																																2021年8月22日于地球</p>
+<p><strong>参考资料</strong></p>
+<p><a href="https://v2ex.com/t/570612">inoreader 无法显示图片</a></p>
+<p><a href="https://hexo.io/">Hexo官网</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/138582151">使用 jsDelivr CDN 对 Github 图床进行加速，带给你如丝滑般的图片体验！</a></p>
+<p><a href="https://suyin-blog.club/2020/2M3YWE7/">给 Hexo 中的 Next 主题添加 RSS 功能 | 苏寅 Blog</a></p>
+<p><a href="https://www.ideashin.com/post/2a09be9d/">hexo链接唯一化解决中文标题链接过长问题</a></p>
+<p><a href="https://linwhitehat.github.io/Blog/2020/01/30/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96.html">博客主题优化</a></p>
+<p><strong>感谢以上文章对本博客建设的支持！</strong></p>
+]]></content>
+  </entry>
+</search>
