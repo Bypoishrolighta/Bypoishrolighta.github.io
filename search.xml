@@ -3,7 +3,7 @@
   <entry>
     <title>HelloWorld！</title>
     <url>/post/b6c4e4b6.html</url>
-    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h2><p>&amp;emsp;我已经不是第一次搭建Blog，因为相关技术问题没有再更新<del>主要是懒</del>。<span id="more"></span>今年因为某些原因，不能经常上网，而且担心错过信息。就用RSS订阅一些信息源，本来用的Inoreader配合RSSHUB，免费功能也勉强够用，但订阅一些网站时图片加载不出来，在网上搜了一圈之后找到了这个<strong>万恶之源</strong>。</p>
+    <content><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="新的开始"><a href="#新的开始" class="headerlink" title="新的开始"></a>新的开始</h2><p>我已经不是第一次搭建Blog，因为相关技术问题没有再更新<del>主要是懒</del>。<span id="more"></span>今年因为某些原因，不能经常上网，而且担心错过信息。就用RSS订阅一些信息源，本来用的Inoreader配合RSSHUB，免费功能也勉强够用，但订阅一些网站时图片加载不出来，在网上搜了一圈之后找到了这个<strong>万恶之源</strong>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Bypoishrolighta/Pic/image-20210821144847473.png" alt="image-20210821144847473"></p>
 <p>​	行吧我就自建了TTRSS和RSSHub（之后会有一篇文章讲这个），用的是腾讯云，好巧不巧的是它给了一个8元一年的域名套餐，我的啪的一下很快啊，就买了，想着可以绑定上面的两个服务方便访问，没想到国内的服务器又要实名又要备案，非常麻烦，后来发现绑定Github Pages 不需要备案，我一上头就重构了整个博客。</p>
 <h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>​	为什么用这个呢，因为它快捷方便且稳定<del>主要是之前就是用这个的</del>。下面是部分搭建的过程 <strong>并非教程</strong> 只是方便大家理解建站过程和站点结构。 <del>主要是备忘踩过的一些坑</del></p>
